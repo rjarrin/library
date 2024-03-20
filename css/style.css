@@ -1,0 +1,70 @@
+@font-face {
+    font-family: LibraryFont;
+    src: url(../fonts/Roboto.ttf);
+}
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+
+.header-container .text {
+    font-family: LibraryFont;
+    margin-right: 10px;
+}
+
+.header-container {
+    background-color: aqua;
+    display: flex;
+    width: 100vw;
+    align-items: center;
+}
+
+.header-container #library-picture {
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    margin: 0 5px 0 15px;
+}
+
+.header-container #search-icon {
+    height: 20px;
+    width: 20px;
+    margin: 0 15px 0 5px;
+}
+
+.header-container #search-icon:hover {
+    cursor: pointer;
+    filter: invert(74%) sepia(56%) saturate(3238%) hue-rotate(181deg) brightness(92%) contrast(93%);
+}
+
+#search-bar {
+    flex-grow: 1;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 10px;
+    max-width: 350px;
+    margin-left: auto;
+}
+
+.library-container {
+    background-color: blueviolet;
+}
+
+.filter-container {
+    background-color: yellowgreen;
+}
+
+.library-view-container {
+    background-color: violet;
+}
+
+.catalogue-container {
+    background-color: crimson;
+}
+
+.buttons-container {
+    background-color: blue;
+}
