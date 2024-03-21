@@ -37,3 +37,7 @@ function addToLibrary() {
     // do stuff here
 }
 
+// Collapse sidebar
+document.getElementById("temp-sidebar").addEventListener("click", function () {
+    document.querySelector(".filter-container").classList.toggle("collapsed");
+});
