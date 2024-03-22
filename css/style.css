@@ -119,3 +119,24 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.library-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.library-card img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.library-card .details {
+    display: flex;
+    flex-direction: column;
+}

@@ -10,6 +10,7 @@ function Book(title, author, pages, readStatus, type) {
     // eBook, Book, Graphic Novel, Picture Book, Early Reader
     this.type = type; 
     this.readStatus = readStatus;
+    this.objectType = "Book";
 }
 
 function Audiobook(title, artist, genre, type, listenedStatus) {
@@ -19,6 +20,7 @@ function Audiobook(title, artist, genre, type, listenedStatus) {
     this.genre = genre;
     this.type = type;
     this.listenedStatus = listenedStatus;
+    this.objectType = "Audiobook";
 }
 
 function MoviesTV(title, company, genre, type, watchStatus) {
@@ -28,6 +30,7 @@ function MoviesTV(title, company, genre, type, watchStatus) {
     this.genre = genre;
     this.type = type;
     this.watchStatus = watchStatus;
+    this.objectType = "MoviesTV";
 }
 
 function Software(title, company, genre, type, status) {
@@ -37,6 +40,7 @@ function Software(title, company, genre, type, status) {
     this.genre = genre;
     this.type = type;
     this.status = status;
+    this.objectType = "Software";
 }
 
 // Add a new entry to the library
@@ -160,6 +164,7 @@ document.getElementById("entryForm").addEventListener("submit", function(event){
     }
 
     addToLibrary(entryType, formData);
+    displayLibraryCards();
     closeModal();
 });
 
@@ -177,6 +182,30 @@ function closeModal() {
     document.getElementById("addEntryModal").style.display = "none";
 }
 
+function displayLibraryCards() {
+    const libraryCardsContainer = document.getElementById("library-cards-container");
+    // Clear existing library cards
+    libraryCardsContainer.innerHTML = "";
+    myLibrary.forEach(item => {
+        // Map the item type to the correct filename format
+        const iconFilename = item.objectType.toLowerCase();
+        console.log(iconFilename);
+        let cardHTML = `
+            <div class="library-card">
+                <img src="icons/${iconFilename}.svg" alt="${item.type} icon">
+                <div class="details">
+                    <h3>${item.title}</h3>
+                    <p>Author: ${item.author || item.artist}</p>
+                    <p>Pages: ${item.pages || 'N/A'}</p>
+                    <p>Status: ${item.readStatus || item.listenedStatus || item.watchStatus || item.status}</p>
+                </div>
+            </div>
+        `;
+        libraryCardsContainer.innerHTML += cardHTML;
+    });
+}
+
+
 // Event listener for closing the modal when the close button is clicked
 document.querySelector(".close").addEventListener("click", closeModal);
 
@@ -187,3 +216,6 @@ document.getElementById("add-entry-btn").addEventListener("click", openModal);
 document.getElementById("temp-sidebar").addEventListener("click", function () {
     document.querySelector(".filter-container").classList.toggle("collapsed");
 });
+
+myLibrary.push(new Book("title", "author", "pages", "readStatus", "type"));
+displayLibraryCards();
