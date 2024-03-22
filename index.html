@@ -27,8 +27,27 @@
             <div class="catalogue-container">
                 <!-- Items here (organized by column) + add + delete button -->
             </div>
-            <div class="buttons-container"></div>
+            <div class="buttons-container">
+                <button id="add-entry-btn">Add Entry</button>
+            </div>
+        </div>
+    </div>
 
+    <!-- Add Entry Modal -->
+    <div id="addEntryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Entry</h2>
+            <select id="entryType">
+                <option value="Book">Book</option>
+                <option value="Audiobook">Audiobook</option>
+                <option value="MoviesTV">Movies/TV</option>
+                <option value="Software">Software</option>
+            </select>
+            <form id="entryForm">
+                <!-- Input fields generated here depending on entry type -->
+            </form>
+            <button type="submit" form="entryForm">Add Entry</button>
         </div>
     </div>
     
