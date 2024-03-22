@@ -166,6 +166,10 @@ document.getElementById("entryForm").addEventListener("submit", function(event){
 // Open the modal window
 function openModal() {
     document.getElementById("addEntryModal").style.display = "block";
+    // Get the current value of the dropdown menu
+    const currentEntryType = document.getElementById("entryType").value;
+    // Generate input fields based on the current selection
+    generateInputFields(currentEntryType);
 }
 
 // Close the modal window
@@ -178,8 +182,6 @@ document.querySelector(".close").addEventListener("click", closeModal);
 
 // Event listener for opening the modal when the "Add Entry" button is clicked
 document.getElementById("add-entry-btn").addEventListener("click", openModal);
-
-
 
 // Collapse sidebar
 document.getElementById("temp-sidebar").addEventListener("click", function () {
